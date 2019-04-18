@@ -12,3 +12,11 @@ spring:
 server:
   servlet:
     context-path: /shop
+
+wechat:
+  mpAppId: wx629ba8e99eda470e
+  mpAppSecret: 3a04e9de41256da2dbac598cf93e29ed
+  mchId: 1527097531
+  mchKey: jmk98y7u8y67yju8fr5bh78y7jy69iu6
+  keyPath: D:\graduation_profile\shop.p12
+  notifyUrl: http://yvzr57.natappfree.cc/shop/pay/notify

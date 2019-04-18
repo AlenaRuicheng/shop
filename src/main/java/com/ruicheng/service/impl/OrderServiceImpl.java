@@ -24,9 +24,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -94,10 +96,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDTO findOne(String orderId) {
 
-        OrderMain orderMain = orderMainDao.findById(orderId).get();
-        if (orderMain.getOrderId().equals(orderId)) {
-            throw new SellException(ResultEnum.ORDER_NOT_EXIST);
+        Optional<OrderMain> optional = orderMainDao.findById(orderId);
+        if (!optional.isPresent()) {
+            throw new SellException(ResultEnum.ORDER_IS_NOT_PRESENT);
         }
+        OrderMain orderMain = optional.get();
 
         List<OrderDetail> orderDetailList = orderDetailDao.findByOrderId(orderId);
         if (CollectionUtils.isEmpty(orderDetailList)) {
@@ -127,7 +130,7 @@ public class OrderServiceImpl implements OrderService {
 
         //判断订单状态
         if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
-            log.error("[取消订单] 订单状态不正确, orderId={}, orderStatus={}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            log.error("[取消订单] 不是新下的订单，无法完结订单, orderId={}, orderStatus={}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
             throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
         }
 

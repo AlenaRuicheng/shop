@@ -22,10 +22,10 @@ public class OrderFormToOrderDTOConverter {
         Gson gson = new Gson();
         OrderDTO orderDTO = new OrderDTO();
 
-        orderDTO.setBuyerName(orderForm.getName());
-        orderDTO.setBuyerPhone(orderForm.getPhone());
-        orderDTO.setBuyerAddress(orderForm.getAddress());
-        orderDTO.setBuyerOpenid(orderForm.getOpenid());
+        orderDTO.setBuyerName(orderForm.getBuyerName());
+        orderDTO.setBuyerPhone(orderForm.getBuyerPhone());
+        orderDTO.setBuyerAddress(orderForm.getBuyerAddress());
+        orderDTO.setBuyerOpenid(orderForm.getBuyerOpenid());
 
         List<OrderDetail> orderDetailList;
         try {
@@ -33,7 +33,7 @@ public class OrderFormToOrderDTOConverter {
                     new TypeToken<List<OrderDetail>>() {
                     }.getType());
         } catch (Exception e) {
-            log.error("[对象转换] 错误, string={}", orderForm.getItems());
+            log.error("[对象转换] string不是json格式, string={}", orderForm.getItems());
             throw new SellException(ResultEnum.PARAMETER_ERROR);
         }
         orderDTO.setOrderDetailList(orderDetailList);

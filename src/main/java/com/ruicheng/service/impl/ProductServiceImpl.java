@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Ruicheng
@@ -27,7 +28,11 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductInfo findOne(String productId) {
-        return dao.findById(productId).get();
+        Optional<ProductInfo> optional  = dao.findById(productId);
+        if (!optional.isPresent()){
+            throw new SellException(ResultEnum.NO_SUCH_PRODUCT);
+        }
+        return optional.get();
     }
 
     @Override
@@ -89,6 +94,7 @@ public class ProductServiceImpl implements ProductService {
         }
         if (productInfo.getProductStatusEnum() == ProductStatusEnum.AVAILABLE) {
             throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+            //TODO
         }
 
         //更新
@@ -102,12 +108,12 @@ public class ProductServiceImpl implements ProductService {
         if (productInfo == null) {
             throw new SellException(ResultEnum.NO_SUCH_PRODUCT);
         }
-        if (productInfo.getProductStatusEnum() == ProductStatusEnum.SOLD_OUT) {
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.OUT_OF_STOCK) {
             throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
         }
 
         //更新
-        productInfo.setProductStatus(ProductStatusEnum.SOLD_OUT.getCode());
+        productInfo.setProductStatus(ProductStatusEnum.OUT_OF_STOCK.getCode());
         return dao.save(productInfo);
     }
 }

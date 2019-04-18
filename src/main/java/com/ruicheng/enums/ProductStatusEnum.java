@@ -9,7 +9,7 @@ import lombok.Getter;
 @Getter
 public enum ProductStatusEnum implements CodeEnum {
     AVAILABLE(0, "在架"),
-    SOLD_OUT(1, "售罄")
+    OUT_OF_STOCK(1, "缺货")
     ;
 
     private Integer code;

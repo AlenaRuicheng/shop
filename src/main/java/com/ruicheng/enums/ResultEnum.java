@@ -17,7 +17,7 @@ public enum ResultEnum {
 
     PRODUCT_STOCK_ERROR(-3, "商品库存不正确"),
 
-    ORDER_NOT_EXIST(-4, "订单不存在"),
+    ORDER_IS_NOT_PRESENT(-4, "订单不存在"),
 
     ORDER_DETAIL_IS_NOT_PRESENT(-5, "订单详情不存在"),
 
@@ -46,6 +46,10 @@ public enum ResultEnum {
     LOGIN_FAIL(-17, "登录失败, 登录信息不正确"),
 
     LOGOUT_SUCCESS(-18, "登出成功"),
+
+    NO_SUCH_CATEGORY(-19, "没有这个类目信息"),
+
+    ENCODING_ERROR(-20, "编码错误"),
     ;
 
     private Integer code;
