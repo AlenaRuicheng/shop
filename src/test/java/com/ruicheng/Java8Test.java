@@ -24,4 +24,11 @@ public class Java8Test {
     public void testLambda(){
     }
 
+    @Test
+    public void test1(){
+        Double d1 = 1.1;
+        Double d2 = 1.1;
+        System.out.println(d1-d2==0);
+    }
+
 }

@@ -35,7 +35,7 @@ public enum ResultEnum {
 
     WECHAT_MP_ERROR(-12, "微信公众账号方面错误"),
 
-    WXPAY_NOTIFY_MONEY_VERIFY_ERROR(-13, "微信支付异步通知金额校验不通过"),
+    WXPAY_MONEY_VERIFICATION_FAILED(-13, "微信支付异步通知金额校验不通过"),
 
     ORDER_CANCEL_SUCCESS(-14, "订单取消成功"),
 

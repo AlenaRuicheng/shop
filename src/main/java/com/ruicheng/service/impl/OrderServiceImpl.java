@@ -13,6 +13,7 @@ import com.ruicheng.enums.PayStatusEnum;
 import com.ruicheng.enums.ResultEnum;
 import com.ruicheng.exceptions.SellException;
 import com.ruicheng.service.interfaces.OrderService;
+import com.ruicheng.service.interfaces.PayService;
 import com.ruicheng.service.interfaces.ProductService;
 import com.ruicheng.util.KeyGenerator;
 import lombok.extern.slf4j.Slf4j;
@@ -47,6 +48,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMainDao orderMainDao;
+
+    @Autowired
+    private PayService payService;
 
     @Override
     @Transactional
@@ -154,9 +158,9 @@ public class OrderServiceImpl implements OrderService {
         productService.increaseStock(cartDTOList);
 
         //如果已支付, 需要退款
-//        if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCEED.getCode())) {
-//            payService.refund(orderDTO);
-//        }
+        if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCEED.getCode())) {
+            payService.refund(orderDTO);
+        }
 
         return orderDTO;
     }

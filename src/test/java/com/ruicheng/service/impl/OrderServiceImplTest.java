@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
@@ -88,8 +89,13 @@ public class OrderServiceImplTest {
         OrderDTO orderDTO = orderService.findOne("5344101550887379230");
         OrderDTO result = orderService.pay(orderDTO);
         System.out.println(result.getOrderStatus() + "-------");
-
     }
 
+    @Test
+    public void findList2(){
+        PageRequest pageRequest = PageRequest.of(0, 2);
+        Page<OrderDTO> orderDTOPage = orderService.findList(pageRequest);
+        System.out.println(orderDTOPage.getContent() + "-------");
+    }
 
 }

@@ -1,5 +1,7 @@
 package com.ruicheng.service.interfaces;
 
+import com.lly835.bestpay.model.PayResponse;
+import com.lly835.bestpay.model.RefundResponse;
 import com.ruicheng.dto.OrderDTO;
 
 /**
@@ -7,5 +9,9 @@ import com.ruicheng.dto.OrderDTO;
  * on 2019/4/17.
  */
 public interface PayService {
-    void create(OrderDTO orderDTO);
+    PayResponse create(OrderDTO orderDTO);
+
+    PayResponse notify(String notifyData);
+
+    RefundResponse refund(OrderDTO orderDTO);
 }

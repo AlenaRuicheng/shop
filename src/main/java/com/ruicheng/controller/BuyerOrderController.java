@@ -7,6 +7,7 @@ import com.ruicheng.exceptions.SellException;
 import com.ruicheng.form.OrderForm;
 import com.ruicheng.service.interfaces.BuyerService;
 import com.ruicheng.service.interfaces.OrderService;
+import com.ruicheng.util.JsonFormatterUtil;
 import com.ruicheng.util.ResultVOUtil;
 import com.ruicheng.viewobject.ResultVO;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +47,7 @@ public class BuyerOrderController {
             throw new SellException(ResultEnum.PARAMETER_ERROR.getCode(),
                     bindingResult.getFieldError().getDefaultMessage());
         }
-
+        log.info("\n\n{}========", JsonFormatterUtil.toJson(orderForm));
         OrderDTO orderDTO = OrderFormToOrderDTOConverter.convert(orderForm);
         if (CollectionUtils.isEmpty(orderDTO.getOrderDetailList())) {
             log.error("[创建订单] 购物车不能为空");

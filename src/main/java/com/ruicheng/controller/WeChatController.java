@@ -30,7 +30,7 @@ public class WeChatController {
 
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl")String returnUrl){
-        String url = "http://yvzr57.natappfree.cc/shop/wechat/userInfo";
+        String url = "http://anxnij.natappfree.cc/shop/wechat/userInfo";
         String redirectUrl;
 //        log.info("\n\n======{}\n\n", returnUrl);
         try {
@@ -41,6 +41,7 @@ public class WeChatController {
             log.error("[微信网页授权] 编码错误： {}", e);
             throw new SellException(ResultEnum.ENCODING_ERROR);
         }
+        log.info("redirectUrl==========={}", redirectUrl);
         return "redirect:" + redirectUrl;
     }
 
