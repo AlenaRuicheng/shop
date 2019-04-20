@@ -1,5 +1,6 @@
 package com.ruicheng;
 
+import com.ruicheng.enums.PayStatusEnum;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -26,9 +27,9 @@ public class Java8Test {
 
     @Test
     public void test1(){
-        Double d1 = 1.1;
-        Double d2 = 1.1;
-        System.out.println(d1-d2==0);
+        for (PayStatusEnum pe : PayStatusEnum.values()) {
+            System.out.println(PayStatusEnum.valueOf("WAIT"));
+        }
     }
 
 }

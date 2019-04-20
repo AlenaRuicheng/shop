@@ -60,6 +60,16 @@ public class OrderDTO {
         return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
     }
 
+//    @JsonIgnore
+//    public String getPayStatusMessage() {
+//        for(PayStatusEnum pe: PayStatusEnum.values()){
+//            if (pe.getCode().equals(this.getPayStatus())){
+//                return pe.getMessage();
+//            }
+//        }
+//        return null;
+//    }
+
     @JsonIgnore
     public PayStatusEnum getPayStatusEnum() {
         return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
