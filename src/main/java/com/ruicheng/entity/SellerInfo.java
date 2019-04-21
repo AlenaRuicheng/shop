@@ -16,9 +16,9 @@ public class SellerInfo {
     @Id
     private String sellerId;
 
-    private String username;
+    private String sellerUsername;
 
-    private String password;
+    private String sellerPassword;
 
-    private String openid;
+    private String sellerOpenid;
 }

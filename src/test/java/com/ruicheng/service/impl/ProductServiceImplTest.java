@@ -1,5 +1,6 @@
 package com.ruicheng.service.impl;
 
+import com.ruicheng.dto.CartDTO;
 import com.ruicheng.entity.ProductInfo;
 import com.ruicheng.service.interfaces.ProductService;
 import org.junit.Assert;
@@ -13,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -59,19 +61,21 @@ public class ProductServiceImplTest {
 
     @Test
     public void increaseStock() throws Exception {
-
-    }
-
-    @Test
-    public void decreaseStock() throws Exception {
+        List<CartDTO> cartDTOList = Arrays.asList(new CartDTO("129632", 50),
+                new CartDTO("12586578", 30));
+        productService.increaseStock(cartDTOList);
     }
 
     @Test
     public void onSale() throws Exception {
+        ProductInfo productInfo = productService.onSale("129632");
+        System.out.println(productInfo);
     }
 
     @Test
     public void offSale() throws Exception {
+        ProductInfo productInfo = productService.offSale("129632");
+        System.out.println(productInfo);
     }
 
 }

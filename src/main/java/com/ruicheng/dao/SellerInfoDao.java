@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * on 2019/2/21.
  */
 public interface SellerInfoDao extends JpaRepository<SellerInfo, String> {
-    SellerInfo findByOpenid(String openid);
+    SellerInfo findBySellerOpenid(String sellerOpenid);
 }

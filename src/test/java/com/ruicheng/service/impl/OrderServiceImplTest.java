@@ -33,10 +33,10 @@ public class OrderServiceImplTest {
     @Transactional
     public void create() throws Exception {
         OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setBuyerName("韩梅梅");
-        orderDTO.setBuyerAddress("复兴路");
-        orderDTO.setBuyerPhone("13962563658");
-        orderDTO.setBuyerOpenid("oDLdR5lbx20MWmwrcjbgz6IOJ-yA");
+        orderDTO.setBuyerName("方亮");
+        orderDTO.setBuyerAddress("前进路");
+        orderDTO.setBuyerPhone("14623698526");
+        orderDTO.setBuyerOpenid("qijbibiebook20mofn29u3nfi-a");
 
         //加入购物车
         List<OrderDetail> orderDetailList = new ArrayList<>();
@@ -45,8 +45,8 @@ public class OrderServiceImplTest {
         od1.setProductQuantity(2);
 
         OrderDetail od2 = new OrderDetail();
-        od2.setProductId("5567");
-        od2.setProductQuantity(3);
+        od2.setProductId("561321");
+        od2.setProductQuantity(1);
 
         orderDetailList.add(od1);
         orderDetailList.add(od2);

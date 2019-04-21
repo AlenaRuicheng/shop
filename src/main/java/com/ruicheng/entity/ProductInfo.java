@@ -3,6 +3,7 @@ package com.ruicheng.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ruicheng.enums.ProductStatusEnum;
 import com.ruicheng.util.EnumUtil;
+import com.ruicheng.util.KeyGenerator;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
