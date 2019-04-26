@@ -37,24 +37,24 @@
                             <form role="form" method="post" action="save">
                                 <div class="form-group">
                                     <label>名称</label>
-                                    <input type="text" name="productName" class="form-control" value="${(productInfo.productName)!''}"/>
+                                    <input type="text" name="productName" class="form-control" value="${(productInfo.productName)!''}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>单价</label>
-                                    <input type="text" name="productPrice" class="form-control" value="${(productInfo.productPrice)!''}"/>
+                                    <input type="text" name="productPrice" class="form-control" value="${(productInfo.productPrice)!''}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>库存</label>
-                                    <input type="number" name="productStock" class="form-control" value="${(productInfo.productStock)!''}"/>
+                                    <input type="number" name="productStock" class="form-control" value="${(productInfo.productStock)!''}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>描述</label>
-                                    <input type="text" name="productDescription" class="form-control" value="${(productInfo.productDescription)!''}"/>
+                                    <input type="text" name="productDescription" class="form-control" value="${(productInfo.productDescription)!''}" required/>
                                 </div>
                                 <div class="form-group">
-                                    <label>图片</label>
-                                    <img width="200px" height="200px" src="${(productInfo.productIcon)!''}">
-                                    <input type="text" name="productIcon" class="form-control" value="${(productInfo.productIcon)!''}"/>
+                                    <label>图片链接</label>
+                                    <#--<img width="200px" height="200px" src="${(productInfo.productIcon)!''}">-->
+                                    <input type="text" name="productIcon" class="form-control" value="${(productInfo.productIcon)!''}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>商品类别</label>
@@ -70,7 +70,7 @@
                                     </select>
                                 </div>
                                 <input hidden type="text" name="productId" value="${(productInfo.productId)!''}">
-                                <button type="submit" class="btn btn-default btn-success clearfix" style="margin-top: 30px">提交</button>
+                                <button type="submit" class="btn btn-default btn-success clearfix" style="margin:70px 220px 0 0">提交</button>
                             </form>
                         </div>
                     </div>

@@ -43,13 +43,14 @@ public enum ResultEnum {
 
     PRODUCT_STATUS_ERROR(-16, "商品状态不正确"),
 
-    LOGIN_FAIL(-17, "登录失败, 登录信息不正确"),
+    DUPLICATE_CATEGORY_TYPE(-17, "类目类型重复"),
 
     LOGOUT_SUCCESS(-18, "退出系统"),
 
     NO_SUCH_CATEGORY(-19, "没有这个类目信息"),
 
     ENCODING_ERROR(-20, "编码错误"),
+
     ;
 
     private Integer code;

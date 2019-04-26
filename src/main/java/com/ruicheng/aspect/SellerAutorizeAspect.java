@@ -36,7 +36,7 @@ public class SellerAutorizeAspect {
 
     }
 
-    @Before("verify()")
+//    @Before("verify()")
     public void doVerify(){
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
         if (requestAttributes != null) {

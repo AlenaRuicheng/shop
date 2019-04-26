@@ -12,6 +12,14 @@
     <script src="/shop/js/jquery.min.js"></script>
     <script src="/shop/js/bootstrap.min.js"></script>
     <script src="/shop/js/jquery-accordion-menu.js" type="text/javascript"></script>
+    <style>
+        table td, th{
+            text-align: left;
+        }
+        table th {
+            white-space: nowrap;
+        }
+    </style>
 </head>
 <body>
 <div class="root">
@@ -30,13 +38,13 @@
                                 <thead>
                                 <tr>
                                     <th>订单ID</th>
-                                    <th>姓名</th>
+                                    <th style="min-width: 70px;">姓名</th>
                                     <th>手机号</th>
-                                    <th>地址</th>
+                                    <th style="min-width: 200px;">地址</th>
                                     <th>金额</th>
                                     <th>订单状态</th>
                                     <th>支付状态</th>
-                                    <th>创建时间</th>
+                                    <th style="min-width: 100px;">创建时间</th>
                                     <th colspan="2" style="text-align: center">操作</th>
                                 </tr>
                                 </thead>
@@ -46,7 +54,7 @@
                                     <td>${orderDTO.orderId}</td>
                                     <td>${orderDTO.buyerName}</td>
                                     <td>${orderDTO.buyerPhone}</td>
-                                    <td width="200px">${orderDTO.buyerAddress}</td>
+                                    <td>${orderDTO.buyerAddress}</td>
                                     <td>${orderDTO.orderAmount}</td>
                                     <td>${orderDTO.getOrderStatusEnum().getMessage()}</td>
                                     <td>${orderDTO.getPayStatusEnum().getMessage()}</td>

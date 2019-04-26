@@ -1,6 +1,7 @@
 package com.ruicheng.controller;
 
 import com.ruicheng.entity.ProductCategory;
+import com.ruicheng.enums.ResultEnum;
 import com.ruicheng.exceptions.SellException;
 import com.ruicheng.form.CategoryForm;
 import com.ruicheng.service.interfaces.CategoryService;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -59,7 +62,13 @@ public class SellerCategoryController {
         Integer categoryId = categoryForm.getCategoryId();
         ProductCategory productCategory = new ProductCategory();
         try {
-            if(categoryId != null){
+            if(categoryId == null){
+                if(categoryService.findByCategoryTypeIn(Arrays.asList(categoryForm.getCategoryType())).size() > 0) {
+                    model.put("msg", ResultEnum.DUPLICATE_CATEGORY_TYPE.getMessage());
+                    model.put("redirect_uri", "new_category");
+                    return new ModelAndView("components/error", model);
+                }
+            }else{
                 productCategory = categoryService.findOne(categoryId);
             }
             BeanUtils.copyProperties(categoryForm, productCategory);

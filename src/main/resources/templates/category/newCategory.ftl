@@ -34,11 +34,11 @@
                             <form role="form" method="post" action="save">
                                 <div class="form-group">
                                     <label class="pull-left">名称</label>
-                                    <input type="text" name="categoryName" class="form-control" value="${(productCategory.categoryName)!''}"/>
+                                    <input type="text" name="categoryName" class="form-control" value="${(productCategory.categoryName)!''}" required/>
                                 </div>
                                 <div class="form-group">
                                     <label class="pull-left">类型</label>
-                                    <input type="number" name="categoryType" class="form-control" value="${(productCategory.categoryType)!''}"/>
+                                    <input type="number" name="categoryType" class="form-control" value="${(productCategory.categoryType)!''}" required/>
                                 </div>
                                 <input hidden type="text" name="categoryId" value="${(productCategory.categoryId)!''}">
                                 <button type="submit" class="btn btn-default btn-success">提交</button>

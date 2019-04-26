@@ -94,7 +94,6 @@ public class ProductServiceImpl implements ProductService {
         }
         if (productInfo.getProductStatusEnum() == ProductStatusEnum.AVAILABLE) {
             throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
-            //TODO
         }
 
         //更新
