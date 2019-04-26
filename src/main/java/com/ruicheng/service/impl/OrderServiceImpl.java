@@ -12,6 +12,8 @@ import com.ruicheng.enums.OrderStatusEnum;
 import com.ruicheng.enums.PayStatusEnum;
 import com.ruicheng.enums.ResultEnum;
 import com.ruicheng.exceptions.SellException;
+import com.ruicheng.service.WebSocket;
+import com.ruicheng.service.interfaces.DeliveryMessage;
 import com.ruicheng.service.interfaces.OrderService;
 import com.ruicheng.service.interfaces.PayService;
 import com.ruicheng.service.interfaces.ProductService;
@@ -25,7 +27,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -51,6 +52,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private PayService payService;
+
+    @Autowired
+    private DeliveryMessage deliveryMessage;
+
+    @Autowired
+    private WebSocket webSocket;
 
     @Override
     @Transactional
@@ -93,6 +100,8 @@ public class OrderServiceImpl implements OrderService {
         ).collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
 
+        //5. 发送WebSocket消息
+        webSocket.sendMessage(orderDTO.getOrderId());
 
         return orderDTO;
     }
@@ -184,6 +193,8 @@ public class OrderServiceImpl implements OrderService {
             throw new SellException(ResultEnum.ORDER_UPDATE_FAILED);
         }
 
+        //推送微信模板消息
+        deliveryMessage.onOrderStatus(orderDTO);
         return orderDTO;
     }
 

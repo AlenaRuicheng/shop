@@ -9,6 +9,9 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
   jackson:
     default-property-inclusion: non_null
+  redis:
+    host: localhost
+    port: 6379
 server:
   servlet:
     context-path: /shop
@@ -20,3 +23,9 @@ wechat:
   mchKey: jmk98y7u8y67yju8fr5bh78y7jy69iu6
   keyPath: D:\graduation_profile\shop.p12
   notifyUrl: http://anxnij.natappfree.cc/shop/pay/notify
+  templateId:
+    orderStatus: i62uccWREs7L00B_5nnScVvM6zgEuKCjlKPiw7RBdJ4
+
+projecturl:
+#  weChatMpAuthorize: http://anxnij.natappfree.cc
+  shop: http://kd4bwu.natappfree.cc

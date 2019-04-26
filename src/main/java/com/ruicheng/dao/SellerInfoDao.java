@@ -9,4 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface SellerInfoDao extends JpaRepository<SellerInfo, String> {
     SellerInfo findBySellerOpenid(String sellerOpenid);
+
+    SellerInfo findBySellerUsernameAndSellerPassword(String username, String password);
+
+    SellerInfo findBySellerUsernameAndSellerOpenid(String username, String password);
 }

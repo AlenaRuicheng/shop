@@ -2,11 +2,13 @@ package com.ruicheng.exceptions;
 
 
 import com.ruicheng.enums.ResultEnum;
+import lombok.Getter;
 
 /**
  * Created by Ruicheng
  * on 2019/2/18.
  */
+@Getter
 public class SellException extends RuntimeException{
 
     private Integer code;

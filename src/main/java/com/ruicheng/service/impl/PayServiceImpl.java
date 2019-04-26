@@ -6,7 +6,6 @@ import com.lly835.bestpay.model.PayResponse;
 import com.lly835.bestpay.model.RefundRequest;
 import com.lly835.bestpay.model.RefundResponse;
 import com.lly835.bestpay.service.impl.BestPayServiceImpl;
-import com.lly835.bestpay.utils.MoneyUtil;
 import com.ruicheng.dto.OrderDTO;
 import com.ruicheng.enums.ResultEnum;
 import com.ruicheng.exceptions.SellException;
@@ -17,8 +16,6 @@ import com.ruicheng.util.VerificationUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 
 /**
  * Created by Ruicheng
@@ -67,7 +64,7 @@ public class PayServiceImpl implements PayService{
         //2、判断金额是否一致
         if (!VerificationUtil.equals(payResponse.getOrderAmount(), orderDTO.getOrderAmount().doubleValue())){
             log.error("[微信支付] 异步通知，订单金额不一致，orderId={}, 微信通知金额:￥{}, 系统金额:￥{}",
-                    payResponse.getOrderId(), payResponse.getOrderAmount(), orderDTO.getOrderAmount());
+            payResponse.getOrderId(), payResponse.getOrderAmount(), orderDTO.getOrderAmount());
             throw new SellException(ResultEnum.WXPAY_MONEY_VERIFICATION_FAILED);
         }
         //3、支付

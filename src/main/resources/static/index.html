@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop - 登录</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/application-conf.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="wrap">
+        <header><em>Shop</em><span>卖家端管理系统</span></header>
+        <article>
+            <section>
+                <aside>
+                    <div class="bg-wrapper">
+                        <img src="img/bg.jpg">
+                    </div>
+                    <em>
+                        <img src="img/user.png">
+                    </em>
+                    <form action="" method="post">
+                        <p class="name"><i></i><input type="text" name="username" id="username" placeholder="请输入用户名"
+                                                      autocomplete="off"></p>
+                        <p class="password"><i></i><input type="password" name="password" id="pwd" placeholder="请输入密码">
+                        </p>
+                        <button type="button" id="loginBtn">登录</button>
+                        <!-- <p class="remember"><input type="checkbox" name="remember">记住密码</p> -->
+                        <p class="regist"><span style="color: #666">忘了密码?</span><a href="findpwd.html"
+                                                                                   style="color: #00a0e9">点击找回</a></p>
+                        <div class="clear"></div>
+                    </form>
+                </aside>
+            </section>
+        </article>
+        <footer>
+            <p><i>Copyright </i>&#169;<i> 2019.05 Rc</i></p>
+        </footer>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        function usernameFocus() {
+            $("#username").prev("i").css({"background-image": "url(img/user2.png)"});
+        }
+
+        function usernameBlur() {
+            const username = $("#username");
+            username.prev("i").css({"background-image": "url(img/user1.png)"});
+
+            $("#names").empty();
+            var name = username.val();
+            if (name == "" || name == null) {
+                username.after("<span id='names' style='color: red'>用户名不能为空</span>");
+            }
+        }
+
+        function passwordFocus() {
+            $("#pwd").prev("i").css({"background-image": "url(img/password2.png)"});
+        }
+
+        function passwordBlur() {
+            const password = $("#pwd");
+            password.prev("i").css({"background-image": "url(img/password1.png)"});
+
+            $("#pwds").empty();
+            var pwd = password.val();
+            if (pwd == "" || pwd == null) {
+                password.after("<span id='pwds' style='color: red'>密码不能为空</span>");
+            }
+        }
+
+        $("#username").blur(usernameBlur);
+        $("#username").focus(usernameFocus);
+
+        $("#pwd").blur(passwordBlur);
+        $("#pwd").focus(passwordFocus);
+
+
+        $("#loginBtn").click(function () {
+            var name = $("#username").val();
+            var pwd = $("#pwd").val();
+            $("#sub").empty();
+            if (name == "" || name == null) {
+                usernameBlur();
+                return;
+            }
+            if (pwd == "" || pwd == null) {
+                passwordBlur();
+                return;
+            }
+            $.post(projectUrl + "/shop/seller/login",
+                {"seller_username": name, "seller_password": pwd},
+                function (data) {
+                    if (data) {
+                        window.location.href = "/shop/seller/homepage";
+                    } else {
+                        $("#loginBtn").after("<span id='sub' style='color: red' >用户名或密码错误</span>");
+                    }
+                })
+        });
+
+        $(document).keyup(function(event){
+            if(event.keyCode ==13){
+                $("#loginBtn").trigger("click");
+            }
+        });
+    });
+</script>
+</body>
+</html>

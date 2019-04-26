@@ -1,5 +1,6 @@
 package com.ruicheng.controller;
 
+import com.ruicheng.config.ProjectUrlConfig;
 import com.ruicheng.enums.ResultEnum;
 import com.ruicheng.exceptions.SellException;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +9,6 @@ import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.result.WxMpOAuth2AccessToken;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,11 +28,13 @@ public class WeChatController {
     @Autowired
     private WxMpService wxMpService;
 
+    @Autowired
+    private ProjectUrlConfig projectUrlConfig;
+
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl")String returnUrl){
-        String url = "http://anxnij.natappfree.cc/shop/wechat/userInfo";
+        String url = projectUrlConfig.getWeChatMpAuthorize() + "/shop/wechat/userInfo";
         String redirectUrl;
-//        log.info("\n\n======{}\n\n", returnUrl);
         try {
             redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url,
                     WxConsts.OAUTH2_SCOPE_USER_INFO,

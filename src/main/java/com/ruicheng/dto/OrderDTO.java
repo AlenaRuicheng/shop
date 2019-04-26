@@ -53,7 +53,7 @@ public class OrderDTO {
     @JsonSerialize(using = DateToLongSerializer.class)
     private Date updateTime;
 
-    List<OrderDetail> orderDetailList;
+    private List<OrderDetail> orderDetailList;
 
     @JsonIgnore
     public OrderStatusEnum getOrderStatusEnum() {

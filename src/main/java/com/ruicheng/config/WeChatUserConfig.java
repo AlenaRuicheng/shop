@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import javax.net.ssl.SSLContext;
+import java.util.Map;
 
 /**
  * Created by Ruicheng
@@ -36,4 +36,9 @@ public class WeChatUserConfig {
      * 微信支付异步通知地址
      */
     private String notifyUrl;
+
+    /**
+     *  微信模板ID
+     */
+    private Map<String, String> templateId;
 }
