@@ -33,7 +33,7 @@ public class DeliveryMessageImpl implements DeliveryMessage{
     public void onOrderStatus(OrderDTO orderDTO) {
         WxMpTemplateMessage templateMessage = new WxMpTemplateMessage();
         List<WxMpTemplateData> dataList = Arrays.asList(
-                new WxMpTemplateData("first", "购买成功通知"),
+                new WxMpTemplateData("first", "您所购买的货物已派单"),
                 new WxMpTemplateData("keyword1", MessageUtil.desplayPurchaseDetails(orderDTO.getOrderDetailList())),
                 new WxMpTemplateData("keyword2", orderDTO.getOrderId()),
                 new WxMpTemplateData("keyword3", "食品"),

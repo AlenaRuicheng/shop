@@ -22,10 +22,10 @@ wechat:
   mchId: 1527097531
   mchKey: jmk98y7u8y67yju8fr5bh78y7jy69iu6
   keyPath: D:\graduation_profile\shop.p12
-  notifyUrl: http://anxnij.natappfree.cc/shop/pay/notify
+  notifyUrl: http://shoprc.natapp1.cc/shop/pay/notify
   templateId:
     orderStatus: i62uccWREs7L00B_5nnScVvM6zgEuKCjlKPiw7RBdJ4
 
 projecturl:
-#  weChatMpAuthorize: http://anxnij.natappfree.cc
-  shop: http://kd4bwu.natappfree.cc
+  weChatMpAuthorize: http://shoprc.natapp1.cc
+  shop: http://shoprc.natapp1.cc

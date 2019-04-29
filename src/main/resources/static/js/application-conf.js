@@ -1,1 +1,1 @@
-const projectUrl = "http://kd4bwu.natappfree.cc";
+const projectUrl = "http://shoprc.natapp1.cc";
