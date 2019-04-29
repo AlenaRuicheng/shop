@@ -47,7 +47,7 @@ public class DeliveryMessageImpl implements DeliveryMessage{
         try {
             wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
         } catch (WxErrorException e) {
-            log.error("[微信模板信息推送] ");
+            log.error("[微信模板信息推送] 发送模板信息失败");
             e.printStackTrace();
         }
     }
