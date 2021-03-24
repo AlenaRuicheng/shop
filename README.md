@@ -12,26 +12,26 @@
 
 * 数据库设计
 <div align=center>
-<img width="375" height="600" src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/ER%E5%9B%BE.png"/><br>
+<img src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/ER%E5%9B%BE.png"/><br>
 <center>图2 系统ER图</center>
 </div>
 <br><br>
 
 ### 系统部分功能效果展示
 <div align=center>
-<img src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/%E7%94%A8%E6%88%B7%E8%B4%AD%E4%B9%B0%E5%95%86%E5%93%81%E7%95%8C%E9%9D%A2.jpg"/><br>
+<img width="375" height="600"  src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/%E7%94%A8%E6%88%B7%E8%B4%AD%E4%B9%B0%E5%95%86%E5%93%81%E7%95%8C%E9%9D%A2.jpg"/><br>
 <center>图3 用户购买商品界面</center>
 </div>
 <br><br>
 
 <div align=center>
-<img src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/%E7%94%A8%E6%88%B7%E6%94%AF%E4%BB%98%E8%AE%A2%E5%8D%95%E9%A1%B5%E9%9D%A2.jpg"/><br>
+<img width="375" height="600"  src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/%E7%94%A8%E6%88%B7%E6%94%AF%E4%BB%98%E8%AE%A2%E5%8D%95%E9%A1%B5%E9%9D%A2.jpg"/><br>
 <center>图4 用户支付订单页面</center>
 </div>
 <br><br>
 
 <div align=center>
-<img src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/%E5%BE%AE%E4%BF%A1%E6%A8%A1%E6%9D%BF%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81.jpg"/><br>
+<img width="375" src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/%E5%BE%AE%E4%BF%A1%E6%A8%A1%E6%9D%BF%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81.jpg"/><br>
 <center>图5 微信模板消息推送界面</center>
 </div>
 <br><br>
