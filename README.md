@@ -14,7 +14,7 @@
 <center>图2 系统ER图</center>
 </div>
 
-* 系统部分功能效果展示
+### 系统部分功能效果展示
 <div align=center>
 <img src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/%E7%94%A8%E6%88%B7%E8%B4%AD%E4%B9%B0%E5%95%86%E5%93%81%E7%95%8C%E9%9D%A2.jpg"/><br>
 <center>图3 用户购买商品界面</center>
