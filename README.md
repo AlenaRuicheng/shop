@@ -12,7 +12,7 @@
 
 * 数据库设计
 <div align=center>
-<img src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/ER%E5%9B%BE.png"/><br>
+<img width = "375" height = "600" src="https://github.com/JulianRuicheng/shop/blob/master/src/main/resources/instruction/ER%E5%9B%BE.png"/><br>
 <center>图2 系统ER图</center>
 </div>
 <br><br>
